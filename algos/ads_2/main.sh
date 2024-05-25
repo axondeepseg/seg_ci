@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
-#DOCKER_IMAGE=continuumio/anaconda3:latest
+#DOCKER_IMAGE=jupyter/datascience-notebook:x86_64-latest
 
 # == References ==
-
-apt-get update
-apt-get install -y gcc
 
 git clone https://github.com/axondeepseg/axondeepseg.git ads_v2
 
