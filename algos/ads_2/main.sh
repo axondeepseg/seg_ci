@@ -13,6 +13,7 @@ conda create -n ads_v2 python=3.6
 conda activate ads_v2
 
 pip install numpy==
+python -V
 
 sudo apt-get update
 sudo apt-get install build-essential libatlas-base-dev gfortran
