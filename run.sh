@@ -55,8 +55,10 @@ docker run --rm --name "$PIPELINE_NAME" -d \
     "$IMAGE" tail -f /dev/null
 
 echo "[INFO] Running $USER_SCRIPT_DIR/main.sh in container..."
-
-cd seg-ci
+ls
+ls /
+ls /tmp
+cd /tmp/$UUID
 chmod +x main.sh
 cd ..
 
