@@ -55,13 +55,12 @@ docker run --rm --name "$PIPELINE_NAME" -d \
     "$IMAGE" tail -f /dev/null
 
 echo "[INFO] Running $USER_SCRIPT_DIR/main.sh in container..."
-docker exec "$PIPELINE_NAME" bash -c "ls"
-docker exec "$PIPELINE_NAME" bash -c "ls /"
-docker exec "$PIPELINE_NAME" bash -c "ls /seg-ci"
-docker exec "$PIPELINE_NAME" bash -c "cd /seg-ci && ./main.sh"
 
+cd /seg-ci
+chmod +x main.sh
+cd ..
 
-docker exec "$PIPELINE_NAME" bash -c "cd /seg-ci && chmod +x main.sh && ./main.sh"
+docker exec "$PIPELINE_NAME" bash -c "./main.sh"
 
 echo "[INFO] Consolidating output in output/${PIPELINE_NAME}"
 OUTPUT_FILES=$(ls output/${PIPELINE_NAME}/*.nii* 2> /dev/null | wc -l)
