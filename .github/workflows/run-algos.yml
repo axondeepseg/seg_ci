@@ -44,13 +44,13 @@ jobs:
         auto-update-conda: true
         environment-file: environment.yml
 
-      # Step 3: List conda info, conda packages
-      - name: Conda info and list
-        # List
-        run: |
-          conda info
-          conda list
-    - uses: conda-incubator/setup-miniconda@v2
+    # Step 3: List conda info, conda packages
+    - name: Conda info and list
+      # List
+      run: |
+        conda info
+        conda list
+    
     - name: Reconstruct and evaluate
       run: |
         #sudo apt-get update
