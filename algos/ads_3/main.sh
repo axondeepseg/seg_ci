@@ -9,7 +9,9 @@ cd ads_v3
 
 git checkout 45e7da0
 
-conda env create -f environment.yml -n ads_v3
+conda install -n base conda-libmamba-solver
+
+conda env create -f environment.yml -n ads_v3 --solver=libmamba
 source activate ads_v3
 
 pip install -e .
