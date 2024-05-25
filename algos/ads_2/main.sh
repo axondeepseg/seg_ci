@@ -19,5 +19,7 @@ sudo apt-get update
 sudo apt-get install build-essential libatlas-base-dev gfortran
 
 pip install -e . --ignore-installed certifi
+pip uninstall h5py
+pip install h5py==2.10.0
 
 py.test --cov AxonDeepSeg/ --cov-report term-missing
