@@ -14,4 +14,4 @@ source activate ads_v3
 
 pip install -e .
 
-py.test --cov AxonDeepSeg/ --cov-report term-missing > ../output/log.txt
+py.test --cov AxonDeepSeg/ --cov-report term-missing > ../output/log3.txt
