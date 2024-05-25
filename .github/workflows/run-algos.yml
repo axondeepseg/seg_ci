@@ -36,22 +36,22 @@ jobs:
       shell: bash
 
     # Step 2: Install environment.
-    - name: Install Conda
+    - name: Install Conda Env All OS
       uses: conda-incubator/setup-miniconda@v2
       with:
-        python-version: ${{matrix.python-version}}
+        python-version: 3.9
+        activate-environment: venv
+        auto-update-conda: true
+        environment-file: environment.yml
 
+      # Step 3: List conda info, conda packages
+      - name: Conda info and list
+        # List
+        run: |
+          conda info
+          conda list
+    - uses: conda-incubator/setup-miniconda@v2
     - name: Reconstruct and evaluate
-      env:
-        OSF_TOKEN: ${{ secrets.OSF_TOKEN }}
-        OS_PASSWORD: ${{ secrets.SWIFT_OS_PASSWORD }}
-        OS_PROJECT_ID: ${{ secrets.SWIFT_OS_PROJECT_ID }}
-        OS_USERNAME: ${{ secrets.SWIFT_OS_USERNAME }}
-        OS_APPLICATION_CREDENTIAL_ID: ${{ secrets.SWIFT_OS_APPLICATION_CREDENTIAL_ID }}
-        OS_APPLICATION_CREDENTIAL_SECRET: ${{ secrets.SWIFT_OS_APPLICATION_CREDENTIAL_SECRET }}
-        PARSE_APPLICATION_ID: ${{ secrets.PARSE_APPLICATION_ID }}
-        PARSE_REST_API_KEY: ${{ secrets.PARSE_REST_API_KEY }}
-        PARSE_MASTER_KEY: ${{ secrets.PARSE_MASTER_KEY }}
       run: |
         #sudo apt-get update
         #sudo apt-get install python3.10 python3.10-venv python-is-python3 -y
