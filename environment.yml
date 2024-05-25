@@ -1,1 +1,3 @@
-numpy
+name: ads_venv
+dependencies:
+  - numpy
