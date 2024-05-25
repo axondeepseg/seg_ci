@@ -60,20 +60,4 @@ echo "[INFO] Running $USER_SCRIPT_DIR/main.sh in container..."
 docker exec "$PIPELINE_NAME" bash -c "chmod +x /seg_ci/main.sh"
 docker exec "$PIPELINE_NAME" bash -c "cd /seg_ci && ./main.sh"
 
-echo "[INFO] Consolidating output in output/${PIPELINE_NAME}"
-OUTPUT_FILES=$(ls output/${PIPELINE_NAME}/*.nii* 2> /dev/null | wc -l)
-if [ "$OUTPUT_FILES" -eq 0 ]; then
-    echo "[ERROR] Expected output not found! Check that the script correctly places one NIfTI file in 'output/'"
-    exit 1
-elif [ "$OUTPUT_FILES" -ne 1 ]; then
-    echo "[ERROR] More than one output file found! '`ls output/${PIPELINE_NAME} -m`'"
-    exit 1
-else
-    if [ ! -f output/${PIPELINE_NAME}/*.nii.gz ]; then
-        gzip -f output/${PIPELINE_NAME}/*.nii
-    fi
-    if [ ! -f output/${PIPELINE_NAME}/${PIPELINE_NAME}.nii.gz ]; then
-        mv output/${PIPELINE_NAME}/*.nii.gz output/${PIPELINE_NAME}/${PIPELINE_NAME}.nii.gz
-    fi
-fi
 

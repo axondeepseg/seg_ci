@@ -22,4 +22,4 @@ pip install -e . --ignore-installed certifi
 pip uninstall h5py
 pip install h5py==2.10.0
 
-py.test --cov AxonDeepSeg/ --cov-report term-missing
+py.test --cov AxonDeepSeg/ --cov-report term-missing > ../output/log.txt
