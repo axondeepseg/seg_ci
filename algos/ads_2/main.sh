@@ -3,6 +3,9 @@
 
 # == References ==
 
+apt-get update
+apt-get install -y gcc
+
 git clone https://github.com/axondeepseg/axondeepseg.git ads_v2
 
 cd ads_v2
