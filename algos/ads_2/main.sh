@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+#DOCKER_IMAGE=continuumio/miniconda3:24.3.0-0
 
 # == References ==
 
