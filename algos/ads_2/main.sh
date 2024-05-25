@@ -12,9 +12,11 @@ git checkout b31988d532e25dbe125549946e6766ef569f7950
 conda create -n ads_v2 python=3.6
 conda activate ads_v2
 
+pip install numpy==
+
 sudo apt-get update
 sudo apt-get install build-essential libatlas-base-dev gfortran
 
-pip install -e .  --ignore-installed certifi
+pip install -e . --ignore-installed certifi
 
 py.test --cov AxonDeepSeg/ --cov-report term-missing
