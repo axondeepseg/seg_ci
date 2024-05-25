@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
-#DOCKER_IMAGE=continuumio/miniconda3:24.3.0-0
+#DOCKER_IMAGE=continuumio/anaconda3:latest
 
 # == References ==
-
-apt-get install libc-dev
-conda install gcc
 
 git clone https://github.com/axondeepseg/axondeepseg.git ads_v2
 
