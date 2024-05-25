@@ -1,0 +1,45 @@
+name: Reconstruct and evaluate
+on:
+  workflow_call:
+    inputs:
+      algo_list:
+        required: true
+        type: string
+      runner:
+        required: true
+        type: string
+jobs:
+  recon_and_evaluate:
+    if: ${{ inputs.algo_list != '[]' }}
+    runs-on: ${{ fromJSON(inputs.runner) }}
+    strategy:
+      matrix:
+        algo: ${{ fromJSON(inputs.algo_list) }}
+    steps:
+    - uses: actions/checkout@v3
+    - name: Get modified algorithms
+      id: getfile
+      run: |
+        
+      shell: bash
+    - name: Reconstruct and evaluate
+      env:
+        OSF_TOKEN: ${{ secrets.OSF_TOKEN }}
+        OS_PASSWORD: ${{ secrets.SWIFT_OS_PASSWORD }}
+        OS_PROJECT_ID: ${{ secrets.SWIFT_OS_PROJECT_ID }}
+        OS_USERNAME: ${{ secrets.SWIFT_OS_USERNAME }}
+        OS_APPLICATION_CREDENTIAL_ID: ${{ secrets.SWIFT_OS_APPLICATION_CREDENTIAL_ID }}
+        OS_APPLICATION_CREDENTIAL_SECRET: ${{ secrets.SWIFT_OS_APPLICATION_CREDENTIAL_SECRET }}
+        PARSE_APPLICATION_ID: ${{ secrets.PARSE_APPLICATION_ID }}
+        PARSE_REST_API_KEY: ${{ secrets.PARSE_REST_API_KEY }}
+        PARSE_MASTER_KEY: ${{ secrets.PARSE_MASTER_KEY }}
+      run: |
+        #sudo apt-get update
+        #sudo apt-get install python3.10 python3.10-venv python-is-python3 -y
+        #pip install osfclient argparse numpy scikit-learn scikit-image scipy
+        export PATH=$PATH:/home/runnerx/.local/bin
+
+        export PIPELINE_NAME="$(basename "${{ matrix.algo }}")"
+        
+        bash run.sh algos/${PIPELINE_NAME}
+        
