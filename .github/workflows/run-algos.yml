@@ -9,6 +9,24 @@ on:
         required: true
         type: string
 jobs:
+  # Defining matrix for OS and Python
+  ultra_matrix_test:
+    name: Matrix Test of Python ${{ matrix.python-version }} on ${{ matrix.os }}
+
+    # Matrix driven OS
+    runs-on: ${{ matrix.os }}
+
+    # Default shell for ALL subsequent steps.
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    # Defining matrix for OS and Python
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ "ubuntu-latest"]
+        python-version: [ "3.8" ]
   recon_and_evaluate:
     if: ${{ inputs.algo_list != '[]' }}
     runs-on: ${{ fromJSON(inputs.runner) }}
@@ -22,11 +40,13 @@ jobs:
       run: |
         
       shell: bash
-    - name: Install Dependencies
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y git python3-pip
-        python3 -m pip install --upgrade pip
+
+    # Step 2: Install environment.
+    - name: Install Conda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        python-version: ${{matrix.python-version}}
+
     - name: Reconstruct and evaluate
       env:
         OSF_TOKEN: ${{ secrets.OSF_TOKEN }}
