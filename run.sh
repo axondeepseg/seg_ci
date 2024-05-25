@@ -52,11 +52,12 @@ echo "[INFO] Creating and starting the container '$PIPELINE_NAME' with image $IM
 docker run --rm --name "$PIPELINE_NAME" -d \
     -v "/tmp/$UUID:/seg_ci" \
     -v "$OUTPUT_DIR:/seg_ci/output" \
+    --user root \
     "$IMAGE" tail -f /dev/null
 
 echo "[INFO] Running $USER_SCRIPT_DIR/main.sh in container..."
 
-docker exec "$PIPELINE_NAME" -u root bash -c "chmod +x /seg_ci/main.sh"
+docker exec "$PIPELINE_NAME" bash -c "chmod +x /seg_ci/main.sh"
 docker exec "$PIPELINE_NAME" bash -c "cd /seg_ci && ./main.sh"
 
 echo "[INFO] Consolidating output in output/${PIPELINE_NAME}"
