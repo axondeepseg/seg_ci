@@ -50,12 +50,12 @@ cp -r $USER_SCRIPT_DIR/.* /tmp/$UUID/
 
 echo "[INFO] Creating and starting the container '$PIPELINE_NAME' with image $IMAGE..."
 docker run --rm --name "$PIPELINE_NAME" -d \
-    -v "/tmp/$UUID:/qsmci" \
-    -v "$OUTPUT_DIR:/qsmci/output" \
+    -v "/tmp/$UUID:/seg-ci" \
+    -v "$OUTPUT_DIR:/seg-ci/output" \
     "$IMAGE" tail -f /dev/null
 
 echo "[INFO] Running $USER_SCRIPT_DIR/main.sh in container..."
-docker exec "$PIPELINE_NAME" bash -c "cd /qsmci && chmod +x main.sh && ./main.sh"
+docker exec "$PIPELINE_NAME" bash -c "cd /seg-ci && chmod +x main.sh && ./main.sh"
 
 echo "[INFO] Consolidating output in output/${PIPELINE_NAME}"
 OUTPUT_FILES=$(ls output/${PIPELINE_NAME}/*.nii* 2> /dev/null | wc -l)
