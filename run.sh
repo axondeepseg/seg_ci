@@ -56,9 +56,8 @@ docker run --rm --name "$PIPELINE_NAME" -d \
 
 echo "[INFO] Running $USER_SCRIPT_DIR/main.sh in container..."
 
-sudo chmod +x algos/ads_2/main.sh
-
-docker exec "$PIPELINE_NAME" bash -c "cd /seg_ci && sudo chmod +777 main.sh && ./main.sh"
+docker exec "$PIPELINE_NAME" -u root bash -c "chmod +x /seg_ci/main.sh"
+docker exec "$PIPELINE_NAME" bash -c "cd /seg_ci && ./main.sh"
 
 echo "[INFO] Consolidating output in output/${PIPELINE_NAME}"
 OUTPUT_FILES=$(ls output/${PIPELINE_NAME}/*.nii* 2> /dev/null | wc -l)
