@@ -19,6 +19,8 @@ conda update -n base --all
 conda install -n base mamba
 
 conda update -n base -c conda-forge conda
+conda install pip
+
 pip install scikit-learn==
 mamba env create -f environment.yml -n ads_v3
 source activate ads_v3
