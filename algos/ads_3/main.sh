@@ -11,6 +11,12 @@ git checkout 45e7da0
 
 conda install -n base conda-libmamba-solver
 
+conda search -f scikit-learn
+conda search -f tensorflow
+conda search -f tensorflow-estimator
+
+
+
 conda env create -f environment.yml -n ads_v3 --solver=libmamba
 source activate ads_v3
 
