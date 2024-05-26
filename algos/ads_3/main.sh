@@ -9,15 +9,16 @@ cd ads_v3
 
 git checkout 45e7da0
 
-conda install -n base conda-libmamba-solver
+## prioritize 'conda-forge' channel
+conda config --add channels conda-forge
 
-conda search -f scikit-learn
-conda search -f tensorflow
-conda search -f tensorflow-estimator
+## update existing packages to use 'conda-forge' channel
+conda update -n base --all
 
+## install 'mamba'
+conda install -n base mamba
 
-
-conda env create python=3.7 -f environment.yml -n ads_v3 --solver=libmamba
+mamba env create -f environment.yml -n ads_v3
 source activate ads_v3
 
 pip install -e .
