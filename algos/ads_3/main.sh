@@ -18,7 +18,7 @@ conda update -n base --all
 ## install 'mamba'
 conda install -n base mamba
 
-mamba env create -f environment.yml -n ads_v3
+mamba env create -f environment.yml -n ads_v3 python=3.6
 source activate ads_v3
 
 pip install -e .
