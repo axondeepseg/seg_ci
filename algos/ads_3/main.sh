@@ -7,7 +7,7 @@ git clone https://github.com/axondeepseg/axondeepseg.git ads_v3
 
 cd ads_v3
 
-git checkout 45e7da0
+git checkout ads_v3_ci
 
 ## prioritize 'conda-forge' channel
 conda config --add channels conda-forge
@@ -19,9 +19,7 @@ conda update -n base --all
 conda install -n base mamba
 
 conda update -n base -c conda-forge conda
-conda install pip
 
-pip install scikit-learn==
 mamba env create -f environment.yml -n ads_v3
 source activate ads_v3
 
