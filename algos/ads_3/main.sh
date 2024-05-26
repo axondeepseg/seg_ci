@@ -17,7 +17,7 @@ conda search -f tensorflow-estimator
 
 
 
-conda env create -f environment.yml -n ads_v3 --solver=libmamba
+conda env create python=3.7 -f environment.yml -n ads_v3 --solver=libmamba
 source activate ads_v3
 
 pip install -e .
