@@ -10,7 +10,7 @@ cd ads_v5
 git checkout ac/nnunet_migration
 
 ## install
-./install_ads
+./install_ads -y
 
 ## activate
 ads_activate
