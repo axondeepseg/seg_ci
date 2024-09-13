@@ -13,7 +13,10 @@ git checkout ac/nnunet_migration
 ./install_ads -y
 
 ## activate
+
 source /home/jovyan/.bashrc
-ads_activate
+
+
+source ads_conda/bin/activate ads_conda/envs/venv_ads/
 
 py.test --cov AxonDeepSeg/ --cov-report term-missing > ../output/log3.txt
