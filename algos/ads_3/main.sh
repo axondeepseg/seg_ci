@@ -11,7 +11,7 @@ git checkout ads_v3_ci
 
 conda env create -f environment.yml -n ads_v3
 
-source activate miniconda/envs/ads_v3
+source activate ads_v3
 
 pip install -e .
 
