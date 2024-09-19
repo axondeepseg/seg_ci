@@ -13,10 +13,10 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O mi
 bash miniconda.sh -b -p miniconda
 echo ". miniconda/etc/profile.d/conda.sh" >> ~/.bashrc
 source ~/.bashrc
-which conda
-conda env create -f environment.yml -n ads_v3
 
-source activate ads_v3
+miniconda/bin/conda env create -f environment.yml -n ads_v3
+
+source activate miniconda/envs/ads_v3
 
 pip install -e .
 
