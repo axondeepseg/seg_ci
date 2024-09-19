@@ -7,14 +7,9 @@ git clone https://github.com/axondeepseg/axondeepseg.git ads_v3
 
 cd ads_v3
 
-git checkout 45e7da0
+git checkout ads_v3_ci
 
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
-bash miniconda.sh -b -p miniconda
-echo ". miniconda/etc/profile.d/conda.sh" >> ~/.bashrc
-source ~/.bashrc
-
-miniconda/bin/conda env create -f environment.yml -n ads_v3
+conda env create -f environment.yml -n ads_v3
 
 source activate miniconda/envs/ads_v3
 
