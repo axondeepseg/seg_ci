@@ -7,24 +7,12 @@ git clone https://github.com/axondeepseg/axondeepseg.git ads_v3
 
 cd ads_v3
 
-git checkout ads_v3_ci
+git checkout 45e7da0
 
-## prioritize 'conda-forge' channel
-conda config --add channels conda-forge
+conda env create -f environment.yml -n ads_v3
 
-## update existing packages to use 'conda-forge' channel
-conda update -n base --all
-
-## install 'mamba'
-conda install -n base mamba
-
-conda update -n base -c conda-forge conda
-
-mamba env create -f environment.yml -n ads_v3
 source activate ads_v3
 
 pip install -e .
 
-py.test --cov AxonDeepSeg/ --cov-report term-missing
-
-echo $PATH
+py.test --cov AxonDeepSeg/ --cov-report term-missing 
