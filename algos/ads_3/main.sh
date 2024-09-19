@@ -9,6 +9,8 @@ cd ads_v3
 
 git checkout 45e7da0
 
+conda install conda=24.3.0
+
 conda env create -f environment.yml -n ads_v3
 
 source activate ads_v3
