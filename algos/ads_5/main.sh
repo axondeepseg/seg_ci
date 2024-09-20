@@ -48,3 +48,5 @@ cd ..
 cd ..
 
 tar -zcvf /seg_ci/output.tar.gz data
+
+echo 'Done!'
