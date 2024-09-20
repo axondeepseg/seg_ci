@@ -52,6 +52,7 @@ echo "[INFO] Creating and starting the container '$PIPELINE_NAME' with image $IM
 docker run --rm --name "$PIPELINE_NAME" -d \
     -v "/tmp/$UUID:/seg_ci" \
     -v "$OUTPUT_DIR:/seg_ci/output" \
+    --shm-size 8G \
     --user root \
     "$IMAGE" tail -f /dev/null
 
