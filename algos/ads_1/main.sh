@@ -54,4 +54,4 @@ tar -zcvf /seg_ci/output/ads_1.tar.gz data
 
 ls
 
-echo 'Done!      '
+echo 'Done!'
