@@ -50,8 +50,8 @@ cd ..
 
 cd ..
 
-tar -zcvf /seg_ci/output/output.tar.gz data
+tar -zcvf /seg_ci/output/ads_1.tar.gz data
 
 ls
 
-echo 'Done!   '
+echo 'Done!    '

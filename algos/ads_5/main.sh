@@ -47,6 +47,6 @@ cd ..
 
 cd ..
 
-tar -zcvf /seg_ci/output/output.tar.gz data
+tar -zcvf /seg_ci/output/ads_5.tar.gz data
 
 echo 'Done!    '
