@@ -34,7 +34,7 @@ cd data
 
 cd sem
 
-axondeepseg -t SEM -i image.png
+axondeepseg -t SEM -i image.png -v 2
 
 cd ..
 
@@ -42,7 +42,7 @@ cd ..
 
 cd tem
 
-axondeepseg -t TEM -i image.png
+axondeepseg -t TEM -i image.png -v 2
 
 cd ..
 
