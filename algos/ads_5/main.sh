@@ -7,6 +7,8 @@ git clone https://github.com/axondeepseg/axondeepseg.git ads_v5
 
 cd ads_v5
 
+git clone https://github.com/axondeepseg/data_ci.git data
+
 git checkout ac/nnunet_migration
 
 ## install
@@ -22,8 +24,6 @@ source ads_conda/bin/activate ads_conda/envs/venv_ads/
 py.test --cov AxonDeepSeg/ --cov-report term-missing
 
 # Run on images
-
-git clone https://github.com/axondeepseg/data_ci.git data
 
 cd data
 
@@ -49,4 +49,4 @@ cd ..
 
 tar -zcvf /seg_ci/output/output.tar.gz data
 
-echo 'Done!'
+echo 'Done! '

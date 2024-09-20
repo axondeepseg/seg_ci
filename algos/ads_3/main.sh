@@ -7,6 +7,8 @@ git clone https://github.com/axondeepseg/axondeepseg.git ads_v3
 
 cd ads_v3
 
+git clone https://github.com/axondeepseg/data_ci.git data
+
 git checkout ads_v3_ci
 
 conda env create -f environment.yml -n ads_v3
@@ -18,8 +20,6 @@ pip install -e .
 py.test --cov AxonDeepSeg/ --cov-report term-missing 
 
 # Run on images
-
-git clone https://github.com/axondeepseg/data_ci.git data
 
 cd data
 

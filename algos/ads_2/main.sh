@@ -7,6 +7,8 @@ git clone https://github.com/axondeepseg/axondeepseg.git ads_v2
 
 cd ads_v2
 
+git clone https://github.com/axondeepseg/data_ci.git data
+
 git checkout b31988d532e25dbe125549946e6766ef569f7950
 
 conda create -n ads_v2 python=3.6
@@ -25,8 +27,6 @@ pip install h5py==2.10.0
 py.test --cov AxonDeepSeg/ --cov-report term-missing
 
 # Run on images
-
-git clone https://github.com/axondeepseg/data_ci.git data
 
 cd data
 
