@@ -78,4 +78,4 @@ jobs:
       with:
         name: artifacts.zip
         path: |
-          /home/runner/work/seg_ci/seg_ci/output/"${{matrix.algo}}"/output.tar.gz
+          /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/output.tar.gz
