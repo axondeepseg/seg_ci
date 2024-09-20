@@ -43,13 +43,6 @@ cd ..
 
 cd ..
 
-tar -zcvf /seg_ci/output.tar.gz data
-
-
-cd /seg_ci/
-
-pwd
-
-ls
+tar -zcvf /seg_ci/output/output.tar.gz data
 
 echo 'Done!'

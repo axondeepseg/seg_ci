@@ -50,12 +50,7 @@ cd ..
 
 cd ..
 
-tar -zcvf /seg_ci/output.tar.gz data
-
-
-cd /seg_ci/
-
-pwd
+tar -zcvf /seg_ci/output/output.tar.gz data
 
 ls
 
