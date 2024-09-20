@@ -54,4 +54,4 @@ tar -zcvf /seg_ci/output/output.tar.gz data
 
 ls
 
-echo 'Done! '
+echo 'Done!  '
