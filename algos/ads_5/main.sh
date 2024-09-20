@@ -20,3 +20,31 @@ source /home/jovyan/.bashrc
 source ads_conda/bin/activate ads_conda/envs/venv_ads/
 
 py.test --cov AxonDeepSeg/ --cov-report term-missing
+
+# Run on images
+
+git clone https://github.com/axondeepseg/data_ci.git data
+
+cd data
+
+# SEM
+
+cd sem
+
+axondeepseg -i image.png
+
+cd ..
+
+# TEM
+
+cd tem
+
+axondeepseg -i image.png
+
+cd ..
+
+# Compress
+
+cd ..
+
+tar -zcvf /seg_ci/output.tar.gz data

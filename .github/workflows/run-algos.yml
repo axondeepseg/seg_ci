@@ -61,4 +61,20 @@ jobs:
         export PIPELINE_NAME="$(basename "${{ matrix.algo }}")"
         
         bash run.sh algos/${PIPELINE_NAME}
+
+    - name: Reconstruct and evaluate
+      run: |
+        #sudo apt-get update
+        #sudo apt-get install python3.10 python3.10-venv python-is-python3 -y
+        #pip install osfclient argparse numpy scikit-learn scikit-image scipy
+        export PATH=$PATH:/home/runnerx/.local/bin
+
+        export PIPELINE_NAME="$(basename "${{ matrix.algo }}")"
         
+        bash run.sh algos/${PIPELINE_NAME}
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: Segmentation files
+          path: |
+            output/${PIPELINE_NAME}/output.tar.gz
