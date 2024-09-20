@@ -9,7 +9,7 @@ cd ads_v2
 
 git clone https://github.com/axondeepseg/data_ci.git data
 
-git checkout cca40dd822affeb04eae9dc5434d01ba2b892627
+git checkout ads_v1_ci
 
 conda create -n ads_v1 python=2.7
 source activate ads_v1
