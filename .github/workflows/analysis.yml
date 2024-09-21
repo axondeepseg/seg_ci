@@ -26,5 +26,17 @@ jobs:
     - uses: actions/download-artifact@v4
       with:
         path: /home/runner/work/seg_ci/seg_ci/data/
-              
-    - run: ls /home/runner/work/seg_ci/seg_ci/data/
+
+    - uses: actions/checkout@master
+    - name: Unzip artifacts
+      run: |
+      ls /home/runner/work/seg_ci/seg_ci/data/
+
+    - name: Install ADS
+      run: |
+      git clone https://www.github.com/axondeepseg/axondeepseg.git
+      cd axondeepseg
+      ./install_ads -y
+
+      source ads_conda/bin/activate ads_conda/envs/venv_ads
+
