@@ -1,4 +1,8 @@
 {
+    "default": {
+        "autoRun": true,
+        "freeUpSpace": false
+    },
     "ads_1": {
         "autoRun": true,
         "freeUpSpace": false
