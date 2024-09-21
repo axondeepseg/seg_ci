@@ -35,7 +35,7 @@ jobs:
           ld
           
           for filename in *.zip; do
-            unzip /home/runner/work/seg_ci/seg_ci/data/${{filename}}
+            unzip /home/runner/work/seg_ci/seg_ci/data/$filename
           done
           ls
           cd $cur_dir
