@@ -24,7 +24,7 @@ pip install -e . --ignore-installed certifi
 pip uninstall h5py
 pip install h5py==2.10.0
 
-#py.test --cov AxonDeepSeg/ --cov-report term-missing
+py.test --cov AxonDeepSeg/ --cov-report term-missing
 
 # Run on images
 
@@ -34,7 +34,7 @@ cd data
 
 cd sem
 
-axondeepseg -t SEM -i image.png -v 2
+axondeepseg -t SEM -i image.png -v 2 
 ls
 pwd
 cd ..
