@@ -67,7 +67,7 @@ jobs:
     - name: "Check file existence"
       uses: andstor/file-existence-action@v3
       with:
-        files: "/home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/sem/image_seg-axonmyelin.png, /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/sem/image_seg-axonmyelin.png"
+        files: "/home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/data/sem/image_seg-axonmyelin.png, /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/data/sem/image_seg-axonmyelin.png"
 
     - name: Archive output artifacts
       uses: actions/upload-artifact@v4
