@@ -30,8 +30,10 @@ jobs:
       run: |
           cur_dir=pwd
           cd /home/runner/work/seg_ci/seg_ci/data
-          
+          ls
           for filename in *.tar.gz; do
+            cd $filename
+            ls
             tar -xvf $filename
           done
           ls
