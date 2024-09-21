@@ -28,14 +28,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
-    - run: |
-      algo_list="["
-      for ALGO in $inputs.algo_list; do
-        algo_list+="\"${ALGO}\","
-      done
-      algo_list=$(echo "$algo_list" | sed 's/,$//')
-      algo_list+="]"
-
 
     - uses: actions/download-artifact@v4
       with:
