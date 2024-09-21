@@ -67,3 +67,11 @@ jobs:
       algo_list: ${{ needs.list-algos.outputs.algo_list }}
       runner: ${{ needs.list-algos.outputs.runner }}
     secrets: inherit
+
+  analyze:
+    needs: recon_and_evaluate
+    uses: ./.github/workflows/analysis.yml
+    with:
+      algo_list: ${{ needs.recon_and_evaluate.output.algo_list }}
+      runner: ${{ needs.recon_and_evaluate.outputs.runner }}
+    secrets: inherit

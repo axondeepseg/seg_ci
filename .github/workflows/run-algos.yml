@@ -80,11 +80,3 @@ jobs:
         name: ${{matrix.algo}}.zip
         path: |
           /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/${{matrix.algo}}.tar.gz
-
-  analyze:
-    needs: recon_and_evaluate
-    uses: ./.github/workflows/analysis.yml
-    with:
-      algo_list: ${{ needs.recon_and_evaluate.output.algo_list }}
-      runner: ${{ needs.recon_and_evaluate.outputs.runner }}
-    secrets: inherit
