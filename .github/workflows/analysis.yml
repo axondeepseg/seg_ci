@@ -10,7 +10,7 @@ on:
         type: string
 jobs:
   analysis:
-    name: Matrix Test
+    name: Analysis
 
     if: ${{ inputs.algo_list != '[]' }}
     runs-on: ${{ fromJSON(inputs.runner) }}
