@@ -44,7 +44,6 @@ jobs:
             cd ..
             cd ..
             cd ..
-            cd ..
 
           done
           ls
