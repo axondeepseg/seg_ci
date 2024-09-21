@@ -32,14 +32,22 @@ jobs:
           cd /home/runner/work/seg_ci/seg_ci/data
           ls
           for filename in *.tar.gz; do
+            pwd
             cd $filename
+            pwd
             ls
             cd data
+            pwd
             ls
             cd sem
+            ls
+            pwd
             cd ..
+            pwd
             cd ..
+            pwd
             cd ..
+            pwd
             ls
           done
           ls
