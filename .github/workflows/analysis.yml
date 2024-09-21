@@ -28,11 +28,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@master
+    - run: |
+      algo_list="["
+      for ALGO in $inputs.algo_list; do
+        algo_list+="\"${ALGO}\","
+      done
+      algo_list=$(echo "$algo_list" | sed 's/,$//')
+      algo_list+="]"
 
-    - uses: actions/download-artifact@master
+
+    - uses: actions/download-artifact@v4
       with:
-        name: ${{matrix.algo}}.zip
-        path: |
-          /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/${{matrix.algo}}.tar.gz
-          
-    - run: ls /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/
+        path: /home/runner/work/seg_ci/seg_ci/data/
+              
+    - run: ls /home/runner/work/seg_ci/seg_ci/data/
