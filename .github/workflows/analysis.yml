@@ -37,8 +37,6 @@ jobs:
             ls
             tar -xvf $filename
             ls
-            cd $filename
-            ls
             cd data
             ls
             cd sem
