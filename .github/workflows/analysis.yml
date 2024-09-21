@@ -33,9 +33,13 @@ jobs:
           ls
           for filename in *.tar.gz; do
             cd $filename
+            ls
             cd data
             ls
             cd sem
+            cd ..
+            cd ..
+            cd ..
             ls
           done
           ls
@@ -50,5 +54,5 @@ jobs:
           ./install_ads -y
 
           source ads_conda/bin/activate ads_conda/envs/venv_ads
-          
+
 
