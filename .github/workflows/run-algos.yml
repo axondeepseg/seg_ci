@@ -16,6 +16,10 @@ jobs:
     if: ${{ inputs.algo_list != '[]' }}
     runs-on: ${{ fromJSON(inputs.runner) }}
 
+    outputs:
+      algo_list: ${{ inputs.algo_list }}
+      runner: ${{ inputs.runner }}
+
     # Default shell for ALL subsequent steps.
     defaults:
       run:
@@ -81,6 +85,6 @@ jobs:
     needs: recon_and_evaluate
     uses: ./.github/workflows/analysis.yml
     with:
-      algo_list: ${{ needs.recon_and_evaluate.inputs.algo_list }}
+      algo_list: ${{ needs.recon_and_evaluate.output.algo_list }}
       runner: ${{ needs.recon_and_evaluate.outputs.runner }}
     secrets: inherit

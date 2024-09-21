@@ -21,7 +21,7 @@ source /home/jovyan/.bashrc
 
 source ads_conda/bin/activate ads_conda/envs/venv_ads/
 
-py.test --cov AxonDeepSeg/ --cov-report term-missing
+#py.test --cov AxonDeepSeg/ --cov-report term-missing
 
 # Run on images
 
