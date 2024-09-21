@@ -27,12 +27,12 @@ jobs:
         algo: ${{ fromJSON(inputs.algo_list) }}
 
   steps:
-    - uses: actions/checkout@master
+  - uses: actions/checkout@master
 
-    - uses: actions/download-artifact@master
-      with:
-        name: ${{matrix.algo}}.zip
-        path: |
-          /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/${{matrix.algo}}.tar.gz
+  - uses: actions/download-artifact@master
+    with:
+      name: ${{matrix.algo}}.zip
+      path: |
+        /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/${{matrix.algo}}.tar.gz
         
-    - run: ls /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/
+  - run: ls /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/
