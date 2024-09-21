@@ -10,7 +10,7 @@ on:
         type: string
 jobs:
   # Defining matrix for OS and Python
-  recon_and_evaluate:
+  segment:
     name: Matrix Test
 
     if: ${{ inputs.algo_list != '[]' }}
