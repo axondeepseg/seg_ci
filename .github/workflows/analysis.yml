@@ -32,28 +32,25 @@ jobs:
           cd /home/runner/work/seg_ci/seg_ci/data
           ls
           for filename in *.tar.gz; do
-            pwd
+            ls
             cd $filename
-            pwd
+            ls
+            tar -xvf $filename
+            ls
+            cd $filename
             ls
             cd data
-            pwd
             ls
             cd sem
             ls
-            pwd
             cd ..
-            pwd
             cd ..
-            pwd
             cd ..
-            pwd
-            ls
+            cd ..
+
           done
           ls
           cd $cur_dir
-          ls
-          pwd
 
     - name: Install ADS
       run: |
@@ -62,5 +59,4 @@ jobs:
           ./install_ads -y
 
           source ads_conda/bin/activate ads_conda/envs/venv_ads
-
 
