@@ -26,13 +26,13 @@ jobs:
       matrix:
         algo: ${{ fromJSON(inputs.algo_list) }}
 
-  steps:
-  - uses: actions/checkout@master
+    steps:
+    - uses: actions/checkout@master
 
-  - uses: actions/download-artifact@master
-    with:
-      name: ${{matrix.algo}}.zip
-      path: |
-        /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/${{matrix.algo}}.tar.gz
-        
-  - run: ls /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/
+    - uses: actions/download-artifact@master
+      with:
+        name: ${{matrix.algo}}.zip
+        path: |
+          /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/${{matrix.algo}}.tar.gz
+          
+    - run: ls /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/
