@@ -33,6 +33,8 @@ cd sem
 
 axondeepseg -i image.png
 
+mv image_grayscale_seg-axonmyelin.png image_seg-axonmyelin.png
+
 cd ..
 
 # TEM
@@ -40,8 +42,6 @@ cd ..
 cd tem
 
 axondeepseg -i image.png
-
-cp image_grayscale_seg-axonmyelin.png image_seg-axonmyelin.png
 
 cd ..
 
