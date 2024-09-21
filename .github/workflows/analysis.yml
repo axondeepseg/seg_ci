@@ -29,24 +29,15 @@ jobs:
     - name: Unzip artifacts
       run: |
           cur_dir=$(pwd)
-          cd /home/runner/work/seg_ci/seg_ci/data
-          ls
-          for filename in *.tar.gz; do
-            ls
-            cd $filename
-            ls
-            tar -xvf $filename
-            ls
-            cd data
-            ls
-            cd sem
-            ls
-            cd ..
-            cd ..
-            cd ..
+          data_dir=/home/runner/work/seg_ci/seg_ci/data
+          cd $data_dir
 
+          for filename in *.tar.gz; do
+            cd $filename
+            tar -xvf $filename
+            cd ..
           done
-          ls
+
           cd $cur_dir
 
     - name: Install ADS
@@ -57,3 +48,21 @@ jobs:
 
           source ads_conda/bin/activate ads_conda/envs/venv_ads
 
+    - name: Run morphometrics
+      run: |
+          cd $data_dir
+          for filename in *.tar.gz; do
+            cd $filename
+            cd data
+            
+            cd sem
+            axondeepseg_morphometrics -i image_seg-axonmyelin.png -f axon_morphometrics.csv
+            cd ..
+            
+            cd tem
+            axondeepseg_morphometrics -i image_seg-axonmyelin.png -f axon_morphometrics.csv
+            cd ..
+
+            cd ..
+            cd ..
+          done
