@@ -17,7 +17,7 @@ source activate ads_v3
 
 pip install -e .
 
-#py.test --cov AxonDeepSeg/ --cov-report term-missing 
+py.test --cov AxonDeepSeg/ --cov-report term-missing 
 
 # Run on images
 
