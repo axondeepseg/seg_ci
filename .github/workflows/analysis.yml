@@ -28,14 +28,11 @@ jobs:
 
     - name: Unzip artifacts
       run: |
-          ls
-          ls /home/runner/work/seg_ci/seg_ci/data/
           cur_dir=pwd
           cd /home/runner/work/seg_ci/seg_ci/data
-          ls
           
-          for filename in *.zip; do
-            unzip /home/runner/work/seg_ci/seg_ci/data/$filename
+          for filename in *.tar.gz; do
+            tar -xvf $filename
           done
           ls
           cd $cur_dir
