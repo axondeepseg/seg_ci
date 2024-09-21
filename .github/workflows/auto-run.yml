@@ -43,7 +43,6 @@ jobs:
         algo_list="["
         for ALGO in $all_algos; do
           AUTORUN=$(cat .github/workflows/build-config.json | jq ".${ALGO}.autoRun")
-          [ "$AUTORUN" == "null" ] && AUTORUN=$(cat .github/workflows/build-config.json | jq ".default.autoRun")
           if [ "$AUTORUN" == "true" ]; then
             algo_list+="\"${ALGO}\","
           fi
