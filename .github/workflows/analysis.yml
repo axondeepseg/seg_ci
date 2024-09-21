@@ -11,9 +11,8 @@ on:
 jobs:
   analysis:
     name: Analysis
-
-    if: ${{ inputs.algo_list != '[]' }}
-    runs-on: ${{ fromJSON(inputs.runner) }}
+    
+    runs-on: ubuntu-latest
 
     # Default shell for ALL subsequent steps.
     defaults:
