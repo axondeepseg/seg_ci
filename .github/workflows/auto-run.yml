@@ -2,8 +2,6 @@ name: auto-run
 
 on:
   push:
-    paths:
-      - 'algos/**/*'
     branches:
       - main
   workflow_dispatch:
