@@ -30,6 +30,14 @@ jobs:
     - name: Unzip artifacts
       run: |
           ls /home/runner/work/seg_ci/seg_ci/data/
+          cur_dir=pwd
+          cd /home/runner/work/seg_ci/seg_ci/data/
+          
+          for filename in *.zip; do
+            unzip filename
+          done
+
+          cd $cur_dir
 
     - name: Install ADS
       run: |
