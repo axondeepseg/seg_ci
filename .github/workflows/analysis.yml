@@ -33,11 +33,15 @@ jobs:
           ls
           for filename in *.tar.gz; do
             cd $filename
+            cd data
             ls
-            tar -xvf $filename
+            cd sem
+            ls
           done
           ls
           cd $cur_dir
+          ls
+          pwd
 
     - name: Install ADS
       run: |
@@ -46,4 +50,5 @@ jobs:
           ./install_ads -y
 
           source ads_conda/bin/activate ads_conda/envs/venv_ads
+          
 
