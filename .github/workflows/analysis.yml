@@ -33,7 +33,7 @@ jobs:
           cd /home/runner/work/seg_ci/seg_ci/data/
           
           for filename in *.zip; do
-            unzip filename
+            unzip $filename
           done
           ls
           cd $cur_dir
