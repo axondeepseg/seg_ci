@@ -4,12 +4,14 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
+  # Cron based trigger
+  schedule:
+    - cron: '0 4 * * 2'
 
 jobs:
   list-algos:
     runs-on: ubuntu-22.04
-    if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, 'skipci') || github.event_name == 'workflow_dispatch' }}
+    if: ${{ github.event_name == 'push' && !contains(github.event.head_commit.message, 'skipci') || github.event_name == 'schedule' }}
     outputs:
       algo_list: ${{ steps.set_algo_list.outputs.algo_list }}
       runner: ${{ steps.select_runner.outputs.runner }}
