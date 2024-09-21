@@ -81,7 +81,7 @@ jobs:
         path: |
           /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/${{matrix.algo}}.tar.gz
 
-  build-apps:
+  analyze:
     needs: recon_and_evaluate
     uses: ./.github/workflows/analysis.yml
     with:
