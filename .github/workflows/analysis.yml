@@ -30,10 +30,10 @@ jobs:
       run: |
           ls /home/runner/work/seg_ci/seg_ci/data/
           cur_dir=pwd
-          cd /home/runner/work/seg_ci/seg_ci/data/
+          cd 
           
           for filename in *.zip; do
-            unzip $filename
+            unzip /home/runner/work/seg_ci/seg_ci/data/$filename
           done
           ls
           cd $cur_dir
