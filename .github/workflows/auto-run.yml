@@ -27,7 +27,7 @@ jobs:
     - name: Set algo list
       id: set_algo_list
       run: |
-        if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+        if [ "${{ github.event_name }}" == "push" ]; then
           all_algos=$(find algos -type f -name main.sh | cut -d/ -f2)
         else
           # Extract only the unique directory names where changes have occurred
@@ -43,6 +43,7 @@ jobs:
         algo_list="["
         for ALGO in $all_algos; do
           AUTORUN=$(cat .github/workflows/build-config.json | jq ".${ALGO}.autoRun")
+          [ "$AUTORUN" == "null" ] && AUTORUN=$(cat .github/workflows/build-config.json | jq ".default.autoRun")
           if [ "$AUTORUN" == "true" ]; then
             algo_list+="\"${ALGO}\","
           fi
