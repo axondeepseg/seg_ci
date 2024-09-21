@@ -18,7 +18,7 @@ jobs:
 
     outputs:
       algo_list: ${{ inputs.algo_list }}
-      runner: ${{ inputs.runner }}
+      runner: ubuntu-latest
 
     # Default shell for ALL subsequent steps.
     defaults:
