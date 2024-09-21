@@ -1,4 +1,4 @@
-name: Reconstruct and evaluate
+name: Install, test, and segment
 on:
   workflow_call:
     inputs:
@@ -51,29 +51,15 @@ jobs:
         conda info
         conda list
     
-    - name: Reconstruct and evaluate
+    - name: Install, test, and segment
       run: |
-        #sudo apt-get update
-        #sudo apt-get install python3.10 python3.10-venv python-is-python3 -y
-        #pip install osfclient argparse numpy scikit-learn scikit-image scipy
         export PATH=$PATH:/home/runnerx/.local/bin
 
         export PIPELINE_NAME="$(basename "${{ matrix.algo }}")"
         
         bash run.sh algos/${PIPELINE_NAME}
 
-        ls
-
-        ls output
-        ls output/${PIPELINE_NAME}/
-
-        cd output
-        pwd
-
-        cd ${PIPELINE_NAME}/
-        pwd
-
-    - name: Archive production artifacts
+    - name: Archive outoput artifacts
       uses: actions/upload-artifact@v4
       with:
         name: ${{matrix.algo}}.zip

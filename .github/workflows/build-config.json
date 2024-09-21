@@ -1,10 +1,22 @@
 {
-    "default": {
+    "ads_1": {
         "autoRun": true,
         "freeUpSpace": false
     },
-    "template": {
+    "ads_2": {
         "autoRun": true,
         "freeUpSpace": false
-    }
+    },
+    "ads_3": {
+        "autoRun": true,
+        "freeUpSpace": false
+    },   
+    "ads_4": {
+        "autoRun": true,
+        "freeUpSpace": false
+    },
+    "ads_5": {
+        "autoRun": true,
+        "freeUpSpace": false
+    } 
 }
