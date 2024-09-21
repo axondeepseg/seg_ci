@@ -59,9 +59,17 @@ jobs:
         
         bash run.sh algos/${PIPELINE_NAME}
 
-    - name: Archive outoput artifacts
+    - name: Archive output artifacts
       uses: actions/upload-artifact@v4
       with:
         name: ${{matrix.algo}}.zip
         path: |
           /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/${{matrix.algo}}.tar.gz
+
+  build-apps:
+    needs: run-algos
+    uses: ./.github/workflows/analysis.yml
+    with:
+      algo_list: ${{ needs.run-algos.inputs.algo_list }}
+      runner: ${{ needs.run-algos.outputs.runner }}
+    secrets: inherit

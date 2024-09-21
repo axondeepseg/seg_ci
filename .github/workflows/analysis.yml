@@ -1,0 +1,38 @@
+name: Install, test, and segment
+on:
+  workflow_call:
+    inputs:
+      algo_list:
+        required: true
+        type: string
+      runner:
+        required: true
+        type: string
+jobs:
+  analysis:
+    name: Matrix Test
+
+    if: ${{ inputs.algo_list != '[]' }}
+    runs-on: ${{ fromJSON(inputs.runner) }}
+
+    # Default shell for ALL subsequent steps.
+    defaults:
+      run:
+        shell: bash -l {0}
+
+    # Defining matrix for OS and Python
+    strategy:
+      fail-fast: false
+      matrix:
+        algo: ${{ fromJSON(inputs.algo_list) }}
+
+  steps:
+    - uses: actions/checkout@master
+
+    - uses: actions/download-artifact@master
+      with:
+        name: ${{matrix.algo}}.zip
+        path: |
+          /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/${{matrix.algo}}.tar.gz
+        
+    - run: ls /home/runner/work/seg_ci/seg_ci/output/${{matrix.algo}}/
