@@ -28,6 +28,7 @@ jobs:
 
     - name: Unzip artifacts
       run: |
+          pwd
           cur_dir=$(pwd)
           data_dir=/home/runner/work/seg_ci/seg_ci/data
           cd $data_dir
@@ -37,24 +38,27 @@ jobs:
             tar -xvf $filename
             cd ..
           done
-
+          pwd
           cd $cur_dir
+          pwd
 
     - name: Install ADS
       run: |
+          pwd
           git clone https://www.github.com/axondeepseg/axondeepseg.git
           cd axondeepseg
           ./install_ads -y
 
           source ads_conda/bin/activate ads_conda/envs/venv_ads
+          cd ..
+          pwd
 
     - name: Run morphometrics
       run: |
           echo $data_dir
-          cd $data_dir
+          cd /home/runner/work/seg_ci/seg_ci/data
           ls
-          echo $(ls)
-          for filename in $(ls); do
+          for filename in *.tar.gz; do
             ls
             cd $filename
             cd data
