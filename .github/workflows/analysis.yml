@@ -32,7 +32,7 @@ jobs:
           data_dir=/home/runner/work/seg_ci/seg_ci/data
           cd $data_dir
           ls
-          for filename in $(ls); do
+          for filename in *.tar.gz; do
             cd $filename
             tar -xvf $filename
             cd ..
@@ -51,7 +51,8 @@ jobs:
     - name: Run morphometrics
       run: |
           cd $data_dir
-          for filename in *.tar.gz; do
+          for filename in $(ls); do
+            ls
             cd $filename
             cd data
             
