@@ -58,7 +58,7 @@ jobs:
           echo $data_dir
           cd /home/runner/work/seg_ci/seg_ci/data
           ls
-          conda activate /home/runner/work/seg_ci/seg_ci/axondeepseg/ads_conda/envs/venv_ads
+          source activate /home/runner/work/seg_ci/seg_ci/axondeepseg/ads_conda/envs/venv_ads
           for filename in *.tar.gz; do
             ls
             cd $filename
