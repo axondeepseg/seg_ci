@@ -31,8 +31,8 @@ jobs:
           cur_dir=$(pwd)
           data_dir=/home/runner/work/seg_ci/seg_ci/data
           cd $data_dir
-
-          for filename in *.tar.gz; do
+          ls
+          for filename in $(ls); do
             cd $filename
             tar -xvf $filename
             cd ..
