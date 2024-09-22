@@ -50,7 +50,10 @@ jobs:
 
     - name: Run morphometrics
       run: |
+          echo $data_dir
           cd $data_dir
+          ls
+          echo $(ls)
           for filename in $(ls); do
             ls
             cd $filename
