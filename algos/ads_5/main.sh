@@ -35,6 +35,8 @@ axondeepseg -i image.png
 ls
 cp image_grayscale_seg-axonmyelin.png image_seg-axonmyelin.png
 cp image_grayscale.png image.png
+cp image_grayscale_seg-axon.png image_seg-axon.png
+cp image_grayscale_seg-myelin.png image_seg-myelin.png
 ls
 cd ..
 
