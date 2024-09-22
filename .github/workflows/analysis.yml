@@ -72,6 +72,7 @@ jobs:
             cd data
             
             cd sem
+            ld
             axondeepseg_morphometrics -i image.png -f axon_morphometrics.csv
             cd ..
             
