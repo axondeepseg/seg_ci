@@ -53,6 +53,11 @@ jobs:
           cd ..
           pwd
 
+    - name: Add ADS to path
+      run: |
+          cat ~/.bashrc | grep "export ADS_DIR" | cut -d " " -f 2 >> $GITHUB_ENV
+          cat ~/.bashrc | grep "export PATH" | grep -o "/.*" | cut -d ':' -f 1 >> $GITHUB_PATH
+
     - name: Run morphometrics
       run: |
           echo $data_dir
