@@ -4,19 +4,19 @@
         "freeUpSpace": false
     },
     "ads_1": {
-        "autoRun": false,
+        "autoRun": true,
         "freeUpSpace": false
     },
     "ads_2": {
-        "autoRun": false,
+        "autoRun": true,
         "freeUpSpace": false
     },
     "ads_3": {
-        "autoRun": false,
+        "autoRun": true,
         "freeUpSpace": false
     },   
     "ads_4": {
-        "autoRun": false,
+        "autoRun": true,
         "freeUpSpace": false
     },
     "ads_5": {
