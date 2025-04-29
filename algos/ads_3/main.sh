@@ -7,7 +7,7 @@ git clone https://github.com/axondeepseg/axondeepseg.git ads_v3
 
 cd ads_v3
 
-git clone https://github.com/axondeepseg/data_ci.git data
+git clone -b mb/ubc https://github.com/axondeepseg/data_ci.git data
 
 git checkout ads_v3_ci
 
@@ -38,6 +38,15 @@ cd tem
 axondeepseg -t TEM -i image.png
 
 cd ..
+
+# UBC TEM
+
+cd ubc
+
+axondeepseg -t TEM -i image.tif
+
+cd ..
+
 
 # Compress
 

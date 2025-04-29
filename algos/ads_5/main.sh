@@ -7,9 +7,9 @@ git clone https://github.com/axondeepseg/axondeepseg.git ads_v5
 
 cd ads_v5
 
-git clone https://github.com/axondeepseg/data_ci.git data
+git clone -b mb/ubc https://github.com/axondeepseg/data_ci.git data
 
-git checkout ac/nnunet_migration
+git checkout master
 
 ## install
 ./install_ads -y
@@ -45,6 +45,14 @@ cd ..
 cd tem
 
 axondeepseg -i image.png
+
+cd ..
+
+# UBC TEM
+
+cd ubc
+
+axondeepseg -i image.tif
 
 cd ..
 

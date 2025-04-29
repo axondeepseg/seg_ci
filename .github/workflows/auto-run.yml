@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - mb/ubc
   # Cron based trigger
   schedule:
     - cron: '0 4 * * 2'
